@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConducteurController!{% endblock %}
+
+{% block body %}
+    <a  href="{{path('conducteur-new')}}" class="btn btn-primary">Créer conducteur</a>
+    <table class="table table-hover">
+    <thead>
+        <tr>
+        <th scope="col">Id_conducteur</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Modification</th>
+        <th scope="col">Suppression</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for conducteur in conducteurs %}
+        <tr>
+            <td>{{conducteur.id}}</td>
+            <td>{{conducteur.prenom}}</td>
+            <td>{{conducteur.nom}}</td>
+            <td>
+                <a  href="{{path('conducteur-edit',{'id':conducteur.id})}}" class="btn btn-primary">Modifier</a>
+            </td>
+            <td> 
+               <a  href="{{path('conducteur-delete',{'id':conducteur.id})}}" class="btn btn-primary">Supprimer</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
