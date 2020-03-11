@@ -21,9 +21,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/conducteur">Conducteurs</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/vehicule">Vehicules</a>
-                </li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/vehicule">Vehicules</a>
+                    </li>
+                {% endif %}
                 </ul>
             </div>
         </nav>
